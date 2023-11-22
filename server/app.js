@@ -15,14 +15,7 @@ const router = require("./routes/router");
 
 app.use(express.json());
 app.use(cookieParser("your-secret-key"));
-app.use(cors(
-    {
-
-            origin: ["https://ecomm-front-ebon.vercel.app"],
-            methods:["GET","POST","PUT","DELETE"]
-         
-    }
-));   
+app.use(cors());   
 app.use(router);
 
 
