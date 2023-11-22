@@ -18,9 +18,9 @@ app.use(cookieParser("your-secret-key"));
 app.use(cors(
     {
 
-            origin: ["https://ecomm-p1on.vercel.app"],
-            methods:["GET","POST","PUT","DELETE"],
-            credentials: true
+            origin: ["https://ecomm-front-ebon.vercel.app"],
+            methods:["GET","POST","PUT","DELETE"]
+         
     }
 ));   
 app.use(router);
