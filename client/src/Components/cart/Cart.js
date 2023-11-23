@@ -52,12 +52,13 @@ const Cart = () => {
         const check = await fetch(`https://amazon-clone-api-sooty.vercel.app/addcart/${id}`, {
             method: "POST",
             headers: {
+                Accept: "application/json",
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 inddata
             }),
-            credentials: "include"
+            credentials: true
         });
         console.log(check);
         const data1 = await check.json();
