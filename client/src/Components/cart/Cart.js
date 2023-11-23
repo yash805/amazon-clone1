@@ -49,7 +49,7 @@ const Cart = () => {
 
     const addtocart = async (id) => {
         console.log(id);
-        const check = await fetch(`/addcart/${id}`, {
+        const check = await fetch(`https://amazon-clone-api-sooty.vercel.app/addcart/${id}`, {
             method: "POST",
             headers: {
                 Accept: "application/json",
