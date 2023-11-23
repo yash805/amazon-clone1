@@ -147,7 +147,7 @@ const Navbar = () => {
                 {
                                     products.filter(product => product.title.longTitle.toLowerCase().includes(text.toLowerCase())).map(product => (
                                       <ListItem>
-                                      <NavLink to={`https://amazon-clone-api-sooty.vercel.app/getproductsone/${product.id}`} onClick={() => setLiopen(true)}>
+                                      <NavLink to={`https://amazon-clone-client-ten.vercel.app/getproductsone/${product.id}`} onClick={() => setLiopen(true)}>
                                           {product.title.longTitle}
                                       </NavLink>
                                   </ListItem>
