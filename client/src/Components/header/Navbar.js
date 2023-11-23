@@ -52,7 +52,6 @@ const Navbar = () => {
     const res = await fetch("https://amazon-clone-api-sooty.vercel.app/validuser", {
       method: "GET",
       headers: {
-        Accept: "application/json",
         "Content-Type": "application/json"
       },
       credentials: "include"
