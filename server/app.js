@@ -16,12 +16,6 @@ const router = require("./routes/router");
 app.use(express.json());
 app.use(cookieParser("your-secret-key"));
 app.use(cors());
-app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'https://amazon-clone-client-phi.vercel.app');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type');
-    next();
-})
 app.use(router);
 
 
