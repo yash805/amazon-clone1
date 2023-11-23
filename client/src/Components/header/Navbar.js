@@ -49,7 +49,7 @@ const Navbar = () => {
 
   const [dropen, setDropen] = useState(false);
   const getdetailsvaliduser = async () => {
-    const res = await fetch("/validuser", {
+    const res = await fetch("https://amazon-clone-api-sooty.vercel.app/validuser", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -76,7 +76,7 @@ const Navbar = () => {
 
   // for logout
   const logoutuser = async () => {
-      const res2 = await fetch("/logout", {
+      const res2 = await fetch("https://amazon-clone-api-sooty.vercel.app/logout", {
           method: "GET",
           headers: {
               Accept: "application/json",
