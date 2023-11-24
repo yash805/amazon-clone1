@@ -91,9 +91,6 @@ router.post("/login", async (req, res) => {
                 httpOnly: true
             });
 
-
-what does this do?
-
             if (!isMatch) {
                 res.status(400).json({ error: "invalid crediential pass" });
             } else {               
