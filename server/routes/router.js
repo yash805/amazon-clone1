@@ -87,10 +87,10 @@ router.post("/login", async (req, res) => {
             const token = await userlogin.generatAuthtoken();
             console.log(token);
 
-            res.cookie("Amazonweb", token, {
-                expires: new Date(Date.now() + 900000),
-                httpOnly: true
-            });
+            res.append('Set-Cookie', `Amazonweb=${token}; Path=/; expires: new Date(Date.now() + 900000); HttpOnly`)
+
+
+what does this do?
 
             if (!isMatch) {
                 res.status(400).json({ error: "invalid crediential pass" });
