@@ -108,7 +108,7 @@ router.post("/login", async (req, res) => {
     }
 });
 
-router.post("/addcart/:id", async (req, res) => {
+router.post("/addcart/:id", authenicate, async (req, res) => {
 
     try {
         console.log("perfect 6");
@@ -134,7 +134,7 @@ router.post("/addcart/:id", async (req, res) => {
     }
 });
 
-router.get("/cartdetails", async (req, res) => {
+router.get("/cartdetails", authenicate, async (req, res) => {
     try {
         const buyuser = await USER.findOne({ _id: req.userID });
         res.status(201).json(buyuser);
@@ -143,7 +143,7 @@ router.get("/cartdetails", async (req, res) => {
     }
 });
 
-router.get("/validuser", async (req, res) => {
+router.get("/validuser", authenicate, async (req, res) => {
     try {
         const validuserone = await USER.findOne({ _id: req.userID });
         res.status(201).json(validuserone);
@@ -153,7 +153,7 @@ router.get("/validuser", async (req, res) => {
 });
 
 
-router.get("/remove/:id", async (req, res) => {
+router.get("/remove/:id", authenicate, async (req, res) => {
     try {
         const { id } = req.params;
 
@@ -172,7 +172,7 @@ router.get("/remove/:id", async (req, res) => {
 });
 
 
-router.get("/logout", async (req, res) => {
+router.get("/logout", authenicate, async (req, res) => {
     try {
         req.rootUser.tokens = req.rootUser.tokens.filter((curelem) => {
             return curelem.token !== req.token
