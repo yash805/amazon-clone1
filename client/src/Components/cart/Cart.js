@@ -27,7 +27,8 @@ const Cart = () => {
             method: "GET",
             headers: {
                 Accept: "application/json",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Cookies": `Amazonweb=${account.tokens[0].token}`
             },
             credentials: "include"
         });
