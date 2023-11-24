@@ -15,7 +15,14 @@ const router = require("./routes/router");
 
 app.use(express.json());
 app.use(cookieParser("your-secret-key"));
-app.use(cors({ origin: ['https://amazon-clone-client-ten.vercel.app', 'http://localhost:3000'] , credentials :  true, methods: ["POST", "GET", "PUT", "DELETE"]}));
+app.use(cors());
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'https://amazon-clone-client-ten.vercel.app, http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,Cookie');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
 app.use(router);
 
 
