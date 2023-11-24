@@ -86,7 +86,9 @@ router.post("/login", async (req, res) => {
 
             const token = await userlogin.generatAuthtoken();
             console.log(token);
-
+            res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000, https://amazon-clone-client-ten.vercel.app');
+            res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Cookie');
+            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
             res.append('Set-Cookie', `Amazonweb=${token}; Path=/; expires: new Date(Date.now() + 900000); HttpOnly`)
 
 
