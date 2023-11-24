@@ -15,7 +15,7 @@ const router = require("./routes/router");
 
 app.use(express.json());
 app.use(cookieParser("your-secret-key"));
-app.use(cors({ origin: ['https://amazon-clone-client-ten.vercel.app', 'http://localhost:3000'] , credentials :  true, methods: ["POST", "GET", "PUT", "DELETE"], allowedHeaders: ["Cookie, Content-Type, Accept, x-requested-with, Cache-Control"]}));
+app.use(cors({ origin: ['https://amazon-clone-client-ten.vercel.app', 'http://localhost:3000'] , credentials :  true, methods: ["POST", "GET", "PUT", "DELETE"]}));
 app.use(router);
 
 
