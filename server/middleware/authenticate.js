@@ -4,7 +4,7 @@ const keysecret = process.env.KEY;
 
 const authenticate = async(req,res,next)=>{
     try {
-        const token = req.get["Cookies"];
+        const token = req.get("Cookies");
         
         const verifyToken = jwt.verify(token,keysecret);
         console.log(verifyToken);
