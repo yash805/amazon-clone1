@@ -9,7 +9,7 @@ const Option = ({deletedata,get}) => {
 
       const removedata = async (id) => {
         try {
-            const res = await fetch(`/remove/${deletedata}`, {
+            const res = await fetch(`https://amazon-clone-api-sooty.vercel.app/remove/${deletedata}`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
