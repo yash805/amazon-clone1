@@ -29,7 +29,7 @@ const Buynow = () => {
       console.log("no data available")
     } else {
       // console.log("data cart main hain");
-      setCartdata(data?.carts.filter((cart)=> cart !== null));
+      setCartdata(data?.carts.filter((cart)=> cart && cart !== null));
     }
   };
 
