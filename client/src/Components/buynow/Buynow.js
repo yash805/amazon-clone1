@@ -1,21 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Divider } from '@mui/material';
 import Option from './Option';
 import Subtotal from './Subtotal';
 import Right from './Right';
-import './buynow.css'
+import './buynow.css';
+import { LoginContext } from "../context/ContextProvider";
 
 const Buynow = () => {
-
+  const { account, setAccount } = useContext(LoginContext);
   const [cartdata, setCartdata] = useState("");
   // console.log(cartdata);
 
   const getdatabuy = async () => {
-    const res = await fetch("/cartdetails", {
+    const res = await fetch("https://amazon-clone-api-sooty.vercel.app/cartdetails", {
       method: "GET",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": account.tokens[0].token
       },
       credentials: "include"
     });
