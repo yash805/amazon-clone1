@@ -33,7 +33,7 @@ const SignUp = () => {
 
         const { fname, email, mobile, password, cpassword } = udata;
         try {
-            const res = await fetch("https://amazon-clone-api-sooty.vercel.app/register", {
+            const res = await fetch("https://amazon-clone-api-two.vercel.app/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
