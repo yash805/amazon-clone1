@@ -24,7 +24,7 @@ const Buynow = () => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "Authorization": account?.tokens[0]?.token
+        "Authorization": account.tokens[0].token
       },
       credentials: "include"
     });
@@ -55,7 +55,7 @@ const Buynow = () => {
 
   return (
     <> {
-      cartdata?.length ? <div className='buynow_section'>
+      cartdata.length <div className='buynow_section'>
         <div className="buynow_container">
           <div className="left_buy">
             <h1>Shopping Cart</h1>
