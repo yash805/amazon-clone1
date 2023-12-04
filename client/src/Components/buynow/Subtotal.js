@@ -2,18 +2,20 @@ import React from 'react'
 import { useEffect,useState } from 'react';
 
 
-const Subtotal = ({iteam}) => {
+const Subtotal = ({iteam, quantityMap}) => {
   const [price, setPrice] = useState(0);
 
   useEffect(() => {
       totalAmount();
-  }, [iteam]);
+    localStorage.setItem('quantityMap', JSON.stringify(quantityMap));
+  }, [iteam, quantityMap]);
 
   const totalAmount = () => {
       let price = 0
       iteam.map((item)=>{
-          price += item.price.cost
-  });
+  const quantity = quantityMap[item.id] || 1; // Default quantity is 1
+       price += item.price.cost * quantity; 
+      });
       setPrice(price)
   }
   return (
