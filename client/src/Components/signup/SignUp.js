@@ -13,7 +13,13 @@ const SignUp = () => {
         password: "",
         cpassword: ""
     });
-
+    
+const [errors, setErrors] = useState({
+        email: "",
+        password: "",
+        cpassword: "",
+        fname: "",
+    });
     console.log(udata);
 
     const adddata = (e) => {
@@ -28,8 +34,50 @@ const SignUp = () => {
         })
     };
 
+     setErrors((prevErrors) => ({
+            ...prevErrors,
+            [name]: "",
+        }));
+    };
+
+     const validateForm = () => {
+        let valid = true;
+
+        // Validate email
+        if (!udata.email.trim()) {
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                email: "! Email is required",
+            }));
+            valid = false;
+        }
+
+        // Validate password
+        if (udata.password.length < 6) {
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                password: "! Password should be at least 6 characters",
+            }));
+            valid = false;
+        }
+
+        // Validate password match
+        if (udata.password !== udata.cpassword) {
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                cpassword: "! Passwords do not match",
+            }));
+            valid = false;
+        }
+        return valid;
+    };
+
     const senddata = async (e) => {
         e.preventDefault();
+         if (!validateForm()) {
+            // Do not proceed with form submission if there are validation errors
+            return;
+        }
 
         const { fname, email, mobile, password, cpassword } = udata;
         try {
@@ -67,7 +115,7 @@ const SignUp = () => {
         <section>
             <div className="sign_container">
                 <div className="sign_header">
-                    <img src="./blacklogoamazon.png" alt="signupimg" />
+                    <img src="https://www.pngmart.com/files/Amazon-Logo-PNG-Image.png" alt="signupimg" />
                 </div>
                 <div className="sign_form">
                     <form method="POST">
@@ -78,6 +126,7 @@ const SignUp = () => {
                                 onChange={adddata}
                                 value={udata.fname}
                                 id="name" />
+                                     {errors.password && <p className="error-message">{errors.password}</p>}
                         </div>
                         <div className="form_data">
                             <label htmlFor="email">email</label>
@@ -85,6 +134,7 @@ const SignUp = () => {
                                 onChange={adddata}
                                 value={udata.email}
                                 id="email" />
+                                    {errors.email && <p className="error-message">{errors.email}</p>}
                         </div>
                         <div className="form_data">
                             <label htmlFor="mobile">Mobile number</label>
@@ -99,6 +149,7 @@ const SignUp = () => {
                                 onChange={adddata}
                                 value={udata.password}
                                 id="password" placeholder="At least 6 characters" />
+                                    {errors.password && <p className="error-message">{errors.password}</p>}
                         </div>
                         <div className="form_data">
                             <label htmlFor="passwordg">Password again</label>
@@ -106,6 +157,8 @@ const SignUp = () => {
                                 onChange={adddata}
                                 value={udata.cpassword}
                                 id="passwordg" />
+                                     {errors.cpassword && <p className="error-message">{errors.cpassword}</p>}
+                                    
                         </div>
                         <button type="submit" className="signin_btn" onClick={senddata}>Continue</button>
 
