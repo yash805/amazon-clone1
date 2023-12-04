@@ -64,7 +64,7 @@ const Buynow = () => {
             <Divider />
 
             {
-              cartdata?.map((e, k) => {
+              cartdata.map((e, k) => {
                 return (
                   <>
                     <div className="item_containert">
