@@ -131,7 +131,7 @@ const Navbar = () => {
             <Rightheader logclose={handleClosedr} logoutuser={logoutuser}/>
           </Drawer>
           <div className="navlogo">
-            <NavLink to='/'><img src="./amazonclone.png" alt="amazon" /></NavLink>
+            <NavLink to='/'><img src="https://www.pngmart.com/files/Amazon-Logo-PNG-Image.png" alt="amazon" /></NavLink>
           </div>
           <div className="nav_searchbaar">
             <input type="text"
@@ -159,58 +159,80 @@ const Navbar = () => {
           </div>
         </div>
         <div className="right">
-          <div className="nav_btn">
-            <NavLink to="/login">signin</NavLink>
-          </div>
-          <div className="cart_btn">
-            {
-              account ? <NavLink to="/buynow">
-                <Badge badgeContent={account.carts.length} color="primary">
-                  <ShoppingCartIcon id="icon" />
-                </Badge>
+          {account ? (
+            <>
+              <div className="nav_btn">
+                <NavLink to="/profile"></NavLink>
+              </div>
+              <div className="cart_btn">
+                <NavLink to="/buynow">
+                  <Badge
+                    badgeContent={account.carts.length}
+                    color="primary"
+                  >
+                    <ShoppingCartIcon id="icon" />
+                  </Badge>
+                </NavLink>
+                <ToastContainer />
+                <p>Cart</p>
+              </div>
+              <Avatar
+                className="avtar2"
+                id="basic-button"
+                aria-controls={open ? 'basic-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+              >
+                {account.fname[0].toUpperCase()}
+              </Avatar>
+            </>
+          ) : (
+            <>
+              <div className="nav_btn">
+                <NavLink to="/login">Signin</NavLink>
+              </div>
+              <div className="cart_btn">
+                <NavLink to="/buynow">
+                  <Badge badgeContent={0} color="primary">
+                    <ShoppingCartIcon id="icon" />
+                  </Badge>
+                </NavLink>
+                <ToastContainer />
+                <p>Cart</p>
+              </div>
+              <Avatar
+                className="avtar"
+                id="basic-button"
+                aria-controls={open ? 'basic-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+              ></Avatar>
+            </>
+          )}
 
-              </NavLink> : <NavLink to="/buynow">
-                <Badge badgeContent={0} color="primary">
-                  <ShoppingCartIcon id="icon" />
-                </Badge>
-              </NavLink>
-            }
-
-
-               <ToastContainer />
-            <p>Cart</p>
-          </div>
-          {
-            account ? <Avatar className="avtar2"  
-            id="basic-button"
-            aria-controls={open ? 'basic-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
-            onClick={handleClick}>{account.fname[0].toUpperCase()}</Avatar> :
-              <Avatar className="avtar" 
-              id="basic-button"
-              aria-controls={open ? 'basic-menu' : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? 'true' : undefined}
-              onClick={handleClick}></Avatar>
-          }
-
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-      >
-        
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        {
-          account ? <MenuItem onClick={handleClose} onClick={logoutuser} ><LogoutIcon style={{ fontSize: 16, marginRight: 3 }}/>Logout</MenuItem>:""
-        }
-        
-      </Menu>
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            MenuListProps={{
+              'aria-labelledby': 'basic-button',
+            }}
+          >
+            <MenuItem onClick={handleClose}>My account</MenuItem>
+            {account ? (
+              <MenuItem onClick={logoutuser}>
+                <LogoutIcon
+                  style={{ fontSize: 16, marginRight: 3 }}
+                />
+                Logout
+              </MenuItem>
+            ) : (
+              ''
+            )}
+          </Menu>
           
         </div>
       </nav>
