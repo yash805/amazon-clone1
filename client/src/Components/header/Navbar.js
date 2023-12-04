@@ -167,7 +167,7 @@ const Navbar = () => {
               <div className="cart_btn">
                 <NavLink to="/buynow">
                   <Badge
-                    badgeContent={account.carts.length}
+                    badgeContent={account.carts?.length}
                     color="primary"
                   >
                     <ShoppingCartIcon id="icon" />

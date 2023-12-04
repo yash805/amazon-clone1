@@ -55,7 +55,7 @@ const Buynow = () => {
 
   return (
     <> {
-      cartdata.length ? <div className='buynow_section'>
+      cartdata?.length ? <div className='buynow_section'>
         <div className="buynow_container">
           <div className="left_buy">
             <h1>Shopping Cart</h1>
