@@ -31,14 +31,16 @@ const [errors, setErrors] = useState({
                 ...udata,
                 [name]: value
             }
-        })
-    };
+        });
 
-     setErrors((prevErrors) => ({
+         setErrors((prevErrors) => ({
             ...prevErrors,
             [name]: "",
         }));
     };
+    };
+
+    
 
      const validateForm = () => {
         let valid = true;
