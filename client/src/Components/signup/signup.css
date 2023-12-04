@@ -14,15 +14,15 @@ section{
 }
 
 .sign_header img{
-    width: 200px;
-    margin-top: -40px;
+      width: 100px;
+    margin-top: 3px;
     cursor: pointer;
 }
 
 .sign_form{
     border: 1px solid #c9c9c9;
     padding: 10px 30px;
-    margin-top: 20px;
+      margin-top: 3px;
     border-radius: 5px;
 }
 
