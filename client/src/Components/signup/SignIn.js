@@ -54,7 +54,7 @@ const SignIn = () => {
 
             if (res.status === 400 || !data) {
                 console.log("invalid details");
-                toast.error("Email and Password not match!"", {
+                toast.error("Email and Password not match!", {
                     position: "top-center"
                 });
             } else {
