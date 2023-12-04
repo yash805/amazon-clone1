@@ -4,10 +4,12 @@ import { NavLink } from 'react-router-dom';
 import { LoginContext } from "../context/ContextProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router';
 
 
 const SignIn = () => {
     // const { account, setAccount } = useContext(Logincontext);
+    const navigate = useNavigate("");
 
     const [logdata, setData] = useState({
         email: "",
@@ -52,16 +54,17 @@ const SignIn = () => {
 
             if (res.status === 400 || !data) {
                 console.log("invalid details");
-                toast.error("Invalid Details 👎!", {
+                toast.error("Email and Password not match!"", {
                     position: "top-center"
                 });
             } else {
                 setAccount(data);
                 document.cookie = "Amazonweb=data.tokens[0].token; path=/; HttpOnly";
                 setData({ ...logdata, email: "", password: "" })
-                toast.success("Login Successfully done 😃!", {
+                toast.success("Login Successfully done!", {
                     position: "top-center"
                 });
+                 navigate('/');
             }
         } catch (error) {
             console.log("login page ka error" + error.message);
@@ -73,7 +76,7 @@ const SignIn = () => {
         <section>
             <div className="sign_container">
                 <div className="sign_header">
-                    <img src="./blacklogoamazon.png" alt="signupimg" />
+                    <img src="https://www.pngmart.com/files/Amazon-Logo-PNG-Image.png" alt="signupimg" />
                 </div>
                 <div className="sign_form">
                     <form method="POST">
