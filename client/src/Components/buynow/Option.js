@@ -14,7 +14,7 @@ const Option = ({deletedata,get, selectedQuantity, handleQuantityChange}) => {
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json",
-                    "Authorization": account?.tokens[0]?.token
+                    "Authorization": account.tokens[0].token
                 },
                 credentials: "include"
             });
