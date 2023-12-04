@@ -146,7 +146,7 @@ const Navbar = () => {
               text &&
               <List className="extrasearch" hidden={liopen}>
                 {
-                                    products.filter(product => product.title.longTitle.toLowerCase().includes(text.toLowerCase()))?.map(product => (
+                                    products.filter(product => product.title.longTitle.toLowerCase().includes(text.toLowerCase())).map(product => (
                                       <ListItem>
                                       <NavLink to={`https://amazon-clone1-back.vercel.app/getproductsone/${product.id}`} onClick={() => setLiopen(true)}>
                                           {product.title.longTitle}
