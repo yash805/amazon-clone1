@@ -27,8 +27,7 @@ const Cart = () => {
             method: "GET",
             headers: {
                 Accept: "application/json",
-                "Content-Type": "application/json",
-                "Authorization": account.tokens[0].token
+                "Content-Type": "application/json"
             },
             credentials: "include"
         });
