@@ -12,7 +12,7 @@ const Subtotal = ({iteam, quantityMap}) => {
 
   const totalAmount = () => {
       let price = 0
-      iteam?.map((item)=>{
+      iteam.map((item)=>{
   const quantity = quantityMap[item.id] || 1; // Default quantity is 1
        price += item.price.cost * quantity; 
       });
@@ -21,7 +21,7 @@ const Subtotal = ({iteam, quantityMap}) => {
   return (
     <div>
        <div className="sub_item">
-            <h3>Subtotal ({iteam?.length} items)<strong style={{ fontWeight: "700", color: "#111" }}> ₹{price}.00</strong></h3>
+            <h3>Subtotal ({iteam.length} items)<strong style={{ fontWeight: "700", color: "#111" }}> ₹{price}.00</strong></h3>
         </div>
     </div>
   )
