@@ -49,7 +49,7 @@ const Slide = ({title,products}) => {
         containerClass='carousel-container'    
         >
             {
-                products.map((e)=>{
+                products?.map((e)=>{
                     return(
                       <NavLink to={`https://amazon-clone1-back.vercel.app/getproductsone/${e.id}`}>
                         <div className="products_items">
