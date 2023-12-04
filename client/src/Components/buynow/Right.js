@@ -1,18 +1,19 @@
 import React from 'react'
 import { useEffect,useState } from 'react';
 
-const Right = ({iteam}) => {
+const Right = ({iteam, quantityMap}) => {
 
     const [price, setPrice] = useState(0);
 
     useEffect(() => {
         totalAmount();
-    }, [iteam]);
+    }, [iteam, quantityMap]);
   
     const totalAmount = () => {
         let price = 0
         iteam.map((item)=>{
-            price += item.price.cost
+            const quantity = quantityMap[item.id] || 1; // Default quantity is 1
+            price += item.price.cost * quantity;
     });
         setPrice(price)
     }
