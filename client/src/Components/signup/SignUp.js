@@ -52,7 +52,7 @@ const [errors, setErrors] = useState({
         }
 
         // Validate password
-        if (udata.password?.length < 6) {
+        if (udata.password.length < 6) {
             setErrors((prevErrors) => ({
                 ...prevErrors,
                 password: "! Password should be at least 6 characters",
