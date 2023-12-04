@@ -53,7 +53,7 @@ const Navbar = () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": account?.tokens[0]?.token
+        "Authorization": account.tokens[0].token
       },
       credentials: "include"
     });
@@ -81,7 +81,7 @@ const Navbar = () => {
           headers: {
               Accept: "application/json",
               "Content-Type": "application/json",
-              "Authorization": account?.tokens[0]?.token
+              "Authorization": account.tokens[0].token
           },
           credentials: "include"
       });
