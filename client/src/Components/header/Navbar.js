@@ -49,7 +49,7 @@ const Navbar = () => {
 
   const [dropen, setDropen] = useState(false);
   const getdetailsvaliduser = async () => {
-    const res = await fetch("https://amazon-clone1-back.vercel.app/validuser", {
+    const res = await fetch("https://amazon-clone-api-two.vercel.app/validuser", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -76,7 +76,7 @@ const Navbar = () => {
 
   // for logout
   const logoutuser = async () => {
-      const res2 = await fetch("https://amazon-clone1-back.vercel.app/logout", {
+      const res2 = await fetch("https://amazon-clone-api-two.vercel.app/logout", {
           method: "GET",
           headers: {
               Accept: "application/json",
@@ -148,7 +148,7 @@ const Navbar = () => {
                 {
                                     products.filter(product => product.title.longTitle.toLowerCase().includes(text.toLowerCase())).map(product => (
                                       <ListItem>
-                                      <NavLink to={`https://amazon-clone1-back.vercel.app/getproductsone/${product.id}`} onClick={() => setLiopen(true)}>
+                                      <NavLink to={`https://amazon-clone-api-two.vercel.app/getproductsone/${product.id}`} onClick={() => setLiopen(true)}>
                                           {product.title.longTitle}
                                       </NavLink>
                                   </ListItem>
