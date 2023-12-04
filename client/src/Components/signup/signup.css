@@ -116,3 +116,8 @@ section{
     padding: 10px 35px;
     letter-spacing: .5px;
 }
+.error-message {
+    font-size: 13px;
+    color: red;
+    margin-top: 5px; /* Adjust the margin for spacing */
+  }
