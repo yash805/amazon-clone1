@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import React, { useContext,useEffect } from 'react'
 import { LoginContext } from "../context/ContextProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Option = ({deletedata,get}) => {
+const Option = ({deletedata,get, selectedQuantity, handleQuantityChange}) => {
   const { account, setAccount } = useContext(LoginContext);
 
 
@@ -37,13 +37,27 @@ const Option = ({deletedata,get}) => {
         }
 
     }
+   const handleChange = (e) => {
+      const newQuantity = parseInt(e.target.value, 10);
+      
+      handleQuantityChange(deletedata, newQuantity);
+    };
+  
+    useEffect(() => {
+      handleQuantityChange(deletedata, selectedQuantity);
+    }, [deletedata, selectedQuantity, handleQuantityChange]);
   return (
     <div className="add_remove_select">
-    <select name="" id="">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
+    <select  name="quantity"
+        id={`quantity-${deletedata}`}
+        value={selectedQuantity}
+        onChange={handleChange}
+        >
+         {[1, 2, 3, 4].map((value) => (
+          <option key={value} value={value}>
+            {value}
+          </option>
+        ))}
     </select>
     <p style={{ cursor: "pointer" }} onClick={()=>removedata(deletedata)}>Delete</p><span>|</span>
     <p className="forremovemedia">Save Or Later</p><span>|</span>
