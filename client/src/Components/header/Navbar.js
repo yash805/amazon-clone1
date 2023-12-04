@@ -167,7 +167,7 @@ const Navbar = () => {
               <div className="cart_btn">
                 <NavLink to="/buynow">
                   <Badge
-                    badgeContent={account.carts?.length}
+                    badgeContent={account.carts.length}
                     color="primary"
                   >
                     <ShoppingCartIcon id="icon" />
@@ -184,7 +184,7 @@ const Navbar = () => {
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
               >
-                {account?.fname[0]?.toUpperCase()}
+                {account.fname[0].toUpperCase()}
               </Avatar>
             </>
           ) : (
