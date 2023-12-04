@@ -9,8 +9,15 @@ import { LoginContext } from "../context/ContextProvider";
 const Buynow = () => {
   const { account, setAccount } = useContext(LoginContext);
   const [cartdata, setCartdata] = useState("");
+  const [quantityMap, setQuantityMap] = useState({});
   // console.log(cartdata);
-
+  const handleQuantityChange = (itemId, selectedQuantity) => {
+    setQuantityMap((prevQuantityMap) => ({
+      ...prevQuantityMap,
+      [itemId]: selectedQuantity,
+    }));
+  };
+  
   const getdatabuy = async () => {
     const res = await fetch("https://amazon-clone-api-two.vercel.app/cartdetails", {
       method: "GET",
@@ -37,7 +44,14 @@ const Buynow = () => {
 
   useEffect(() => {
     getdatabuy();
+    const storedQuantityMap = JSON.parse(localStorage.getItem('quantityMap')) || {};
+    setQuantityMap(storedQuantityMap);
   }, []);
+
+  useEffect(() => {
+    // Save quantityMap to localStorage whenever it changes
+    localStorage.setItem('quantityMap', JSON.stringify(quantityMap));
+  }, [quantityMap]);
 
   return (
     <> {
@@ -62,7 +76,7 @@ const Buynow = () => {
                         <p className="unusuall">Usually dispatch in 8 days</p>
                         <p>Eligible for free shipping</p>
                         <img src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px-2x._CB485942108_.png" alt="logo" />
-                        <Option deletedata={e.id} get={getdatabuy}/>
+                        <Option deletedata={e.id} get={getdatabuy} selectedQuantity={quantityMap[e.id] || 1} handleQuantityChange={handleQuantityChange}/>
                       </div>
                       <h3 className="item_price">₹{e.price.cost}.00</h3>
                     </div>
@@ -73,9 +87,9 @@ const Buynow = () => {
               })
             }
 
-            <Subtotal iteam={cartdata} />
+            <Subtotal iteam={cartdata} quantityMap={quantityMap} />
           </div>
-          <Right iteam={cartdata}/>
+          <Right iteam={cartdata} quantityMap={quantityMap}/>
         </div>
 
       </div> : ""
