@@ -19,12 +19,12 @@ const Buynow = () => {
   };
   
   const getdatabuy = async () => {
-    const res = await fetch("hhttps://amazon-clone1-back.vercel.app/cartdetails", {
+    const res = await fetch("https://amazon-clone1-back.vercel.app/cartdetails", {
       method: "GET",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "Authorization": account.tokens[0].token
+        "Authorization": account?.tokens[0]?.token
       },
       credentials: "include"
     });
@@ -64,7 +64,7 @@ const Buynow = () => {
             <Divider />
 
             {
-              cartdata.map((e, k) => {
+              cartdata?.map((e, k) => {
                 return (
                   <>
                     <div className="item_containert">

@@ -14,7 +14,7 @@ const Option = ({deletedata,get, selectedQuantity, handleQuantityChange}) => {
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json",
-                    "Authorization": account.tokens[0].token
+                    "Authorization": account?.tokens[0]?.token
                 },
                 credentials: "include"
             });
@@ -53,7 +53,7 @@ const Option = ({deletedata,get, selectedQuantity, handleQuantityChange}) => {
         value={selectedQuantity}
         onChange={handleChange}
         >
-         {[1, 2, 3, 4].map((value) => (
+         {[1, 2, 3, 4]?.map((value) => (
           <option key={value} value={value}>
             {value}
           </option>

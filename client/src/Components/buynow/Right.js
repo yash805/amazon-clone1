@@ -11,7 +11,7 @@ const Right = ({iteam, quantityMap}) => {
   
     const totalAmount = () => {
         let price = 0
-        iteam.map((item)=>{
+        iteam?.map((item)=>{
             const quantity = quantityMap[item.id] || 1; // Default quantity is 1
             price += item.price.cost * quantity;
     });

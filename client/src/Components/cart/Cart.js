@@ -54,7 +54,7 @@ const Cart = () => {
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
-                "Authorization": account.tokens[0].token
+                "Authorization": account?.tokens[0]?.token
             },
             body: JSON.stringify({
                 inddata
@@ -79,7 +79,8 @@ const Cart = () => {
     return (
 
         <div className="cart_section">
-            {inddata && Object.keys(inddata).length &&
+            chekc here
+            {inddata && Object.keys(inddata)?.length &&
                 <div className="cart_container">
                     <div className="left_cart">
                         <img src={inddata.detailUrl} alt="cart" />

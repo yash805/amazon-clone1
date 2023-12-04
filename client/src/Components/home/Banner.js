@@ -27,7 +27,7 @@ const Banner = () => {
     }}
     >
        {
-        data.map((imag,i)=>{
+        data?.map((imag,i)=>{
             return (
                 <>
                   <img src={imag} alt="" className='banner_img' />

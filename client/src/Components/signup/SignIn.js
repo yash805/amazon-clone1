@@ -59,7 +59,7 @@ const SignIn = () => {
                 });
             } else {
                 setAccount(data);
-                document.cookie = "Amazonweb=data.tokens[0].token; path=/; HttpOnly";
+                document.cookie = "Amazonweb=data?.tokens[0]?.token; path=/; HttpOnly";
                 setData({ ...logdata, email: "", password: "" })
                 toast.success("Login Successfully done!", {
                     position: "top-center"
