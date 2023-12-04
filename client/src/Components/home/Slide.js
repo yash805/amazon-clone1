@@ -51,7 +51,7 @@ const Slide = ({title,products}) => {
             {
                 products.map((e)=>{
                     return(
-                      <NavLink to={`https://amazon-clone-client-ten.vercel.app/getproductsone/${e.id}`}>
+                      <NavLink to={`https://amazon-clone1-back.vercel.app/getproductsone/${e.id}`}>
                         <div className="products_items">
                             <div className="product_img">
                                 <img src={e.url} alt="productitem" />
