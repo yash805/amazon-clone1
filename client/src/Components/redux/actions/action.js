@@ -1,6 +1,6 @@
 export const getProducts = ()=> async(dispatch)=>{
     try {
-        const data = await fetch("https://amazon-clone-api-two.vercel.app/getproducts",{
+        const data = await fetch("https://amazon-clone1-api1.vercel.app/getproducts",{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"
