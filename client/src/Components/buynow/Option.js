@@ -9,7 +9,7 @@ const Option = ({deletedata,get, selectedQuantity, handleQuantityChange}) => {
 
       const removedata = async (id) => {
         try {
-            const res = await fetch(`https://amazon-clone-api-two.vercel.app/remove/${deletedata}`, {
+            const res = await fetch(`https://amazon-clone1-api1.vercel.app/remove/${deletedata}`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
