@@ -19,7 +19,7 @@ const Buynow = () => {
   };
   
   const getdatabuy = async () => {
-    const res = await fetch("https://amazon-clone-api-two.vercel.app/cartdetails", {
+    const res = await fetch("https://amazon-clone1-api1.vercel.app/cartdetails", {
       method: "GET",
       headers: {
         Accept: "application/json",
