@@ -38,7 +38,7 @@ const SignIn = () => {
         const { email, password } = logdata;
         // console.log(email);
         try {
-            const res = await fetch("https://amazon-clone-api-two.vercel.app/login", {
+            const res = await fetch("https://amazon-clone1-api1.vercel.app/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
